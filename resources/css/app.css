@@ -1,0 +1,188 @@
+ @import 'bootstrap/dist/css/bootstrap.min.css';
+ @import "bootstrap-icons/font/bootstrap-icons.css";
+ @import "./layout.css";
+ @import "./kategori.css";
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ==========================================
+   ROOT
+========================================== */
+
+:root{
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+
+    --success:#16a34a;
+    --danger:#dc2626;
+    --warning:#f59e0b;
+    --info:#0ea5e9;
+
+    --bg:#f5f7fb;
+    --card:#ffffff;
+
+    --text:#1f2937;
+    --muted:#6b7280;
+
+    --border:#e5e7eb;
+
+    --radius:18px;
+
+    --shadow:
+        0 8px 24px rgba(15,23,42,.06);
+
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    font-family:var(--font-sans);
+
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.app-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.app-sidebar{
+
+    width:270px;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    bottom:0;
+
+    background:#fff;
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    z-index:1040;
+
+}
+
+/* Logo */
+
+.sidebar-brand{
+
+    height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 24px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.brand-link{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+.brand-logo{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:14px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.4rem;
+
+}
+
+.brand-text{
+
+    margin-left:14px;
+
+}
+
+.brand-text h5{
+
+    margin:0;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+}
+
+.brand-text small{
+
+    color:var(--muted);
+
+}
