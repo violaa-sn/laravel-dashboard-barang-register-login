@@ -100,7 +100,7 @@ class BarangController extends Controller
         return redirect()->route('barang.index')
             ->with('success', 'Barang berhasil dihapus.');
     }
-$testt
+
 
     public function trash()
     {

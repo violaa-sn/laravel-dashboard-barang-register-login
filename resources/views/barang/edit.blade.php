@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'edit')
+
 @section('content')
 
 <div class="container-fluid py-4">
