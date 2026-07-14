@@ -69,6 +69,7 @@
 
                             <tr>
                                 <th width="10%">No</th>
+                                <th width="20%">Kode Kategori</th>
                                 <th>Nama Kategori</th>
                                 <th width="20%">Jumlah Barang</th>
                                 <th width="20%">Aksi</th>
@@ -86,6 +87,9 @@
                                         {{ $kategori->firstItem() + $loop->index }}
                                     </td>
 
+                                    <td>
+                                        <span class="text-secondary">{{ $item->kode_kategori }}</span>
+                                    </td>
 
                                     <td>
                                         <div class="fw-semibold">

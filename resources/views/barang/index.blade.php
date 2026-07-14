@@ -63,6 +63,7 @@
                             <tr>
 
                                 <th width="5%">No</th>
+                                <th>Kode Barang</th>
                                 <th>Nama Barang</th>
                                 <th>Kategori</th>
                                 <th>Harga</th>
@@ -80,6 +81,10 @@
 
                                     <td>
                                         {{ $barang->firstItem() + $loop->index }}
+                                    </td>
+
+                                    <td>
+                                        <span class="text-secondary">{{ $item->kode_barang }}</span>
                                     </td>
 
                                     <td>
