@@ -107,32 +107,53 @@ document.querySelectorAll('.btn-loading').forEach(btn => {
 });
 
 
- /* ==========================
-        icon mata
-    ========================== */
+/* ==========================
+       toggle password
+   ========================== */
 
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        const password = document.getElementById("password");
-        const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
 
-        if (password && togglePassword) {
+    if (password && togglePassword) {
 
-            togglePassword.addEventListener("click", () => {
+        togglePassword.addEventListener("click", () => {
 
-                const isPassword = password.type === "password";
+            const isPassword = password.type === "password";
 
-                password.type = isPassword ? "text" : "password";
+            password.type = isPassword ? "text" : "password";
 
-                const icon = togglePassword.querySelector("i");
+            const icon = togglePassword.querySelector("i");
 
-                icon.classList.replace(
-                    isPassword ? "bi-eye" : "bi-eye-slash",
-                    isPassword ? "bi-eye-slash" : "bi-eye"
-                );
+            icon.classList.replace(
+                isPassword ? "bi-eye" : "bi-eye-slash",
+                isPassword ? "bi-eye-slash" : "bi-eye"
+            );
 
-            });
+        });
 
-        }
+    }
 
-    });
+});
+
+/* ==========================
+       toggle konfirmasi password
+   ========================== */
+
+const togglePasswordConfirmation = document.querySelector('#togglePasswordConfirmation');
+const passwordConfirmation = document.querySelector('#password_confirmation');
+
+
+togglePasswordConfirmation.addEventListener('click', function () {
+
+    const type = passwordConfirmation.getAttribute('type') === 'password'
+        ? 'text'
+        : 'password';
+
+    passwordConfirmation.setAttribute('type', type);
+
+    this.querySelector('i').classList.toggle('bi-eye');
+    this.querySelector('i').classList.toggle('bi-eye-slash');
+
+});

@@ -94,15 +94,27 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                            
+
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">
                                 Konfirmasi Password
                             </label>
-                            <input type="password" name="password_confirmation" class="form-control">
+
+                            <div class="input-group">
+
+                                <input type="password" id="password_confirmation" name="password_confirmation"
+                                    class="form-control">
+
+                                <button class="btn btn-outline-secondary" type="button" id="togglePasswordConfirmation">
+
+                                    <i class="bi bi-eye"></i>
+                                </button>
+
+                            </div>
                         </div>
+
                         <button class="btn btn-primary w-100">
                             Register
                         </button>
