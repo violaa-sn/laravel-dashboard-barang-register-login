@@ -11,15 +11,28 @@
                     Data Kategori
                 </h3>
                 <p class="text-muted mb-0">
-                    Kelola kategori barang yang tersedia
+                    Kelola kategori kategori yang tersedia
                 </p>
             </div>
 
-            <a href="{{ route('kategori.create') }}" class="btn btn-primary px-4">
-                <i class="bi bi-plus-lg me-1"></i>
-                Tambah Kategori
-            </a>
+            <div class="d-flex gap-2">
 
+                <a href="{{ route('kategori.trash') }}"
+                    class="btn btn-outline-secondary d-flex align-items-center justify-content-center px-4">
+
+                    <i class="bi bi-trash-fill"></i>
+                    Trash
+
+                </a>
+
+                <a href="{{ route('kategori.create') }}"
+                    class="btn btn-primary d-flex align-items-center justify-content-center px-4">
+
+                    <i class="bi bi-plus-lg me-2"></i>
+                    Tambah Kategori
+                </a>
+
+            </div>
         </div>
 
 
@@ -36,6 +49,12 @@
                 @endif
 
 
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
 
                 <div class="table-responsive">
 
@@ -43,7 +62,6 @@
                         <thead class="table-light text-secondary">
 
                             <form method="GET" action="{{ route('kategori.index') }}">
-
                                 <div class="row mb-3">
 
                                     <div class="col-md-4">

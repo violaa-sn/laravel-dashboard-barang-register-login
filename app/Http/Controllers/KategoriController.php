@@ -87,12 +87,18 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kategori $kategori)
-    {
-        $kategori->delete();
+   public function destroy(Kategori $kategori)
+   {
+    if ($kategori->barang()->exists()) {
+        return back()->with(
+            'error',
+            'Kategori masih digunakan oleh barang sehingga tidak dapat dihapus.'
+        );
+    }
 
-        return redirect()->route('kategori.index')
-            ->with('success', 'Kategori berhasil dihapus.');
+    $kategori->delete();
+
+    return back()->with('success', 'Kategori berhasil dihapus.');
     }
 
     public function trash()

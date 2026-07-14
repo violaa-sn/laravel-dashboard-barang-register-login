@@ -102,10 +102,12 @@ class BarangController extends Controller
     }
 
 
+
     public function trash()
     {
         $barang = Barang::onlyTrashed()
-            ->latest()
+            ->with('kategori')
+            ->latest('deleted_at')
             ->paginate(10);
 
         return view('barang.trash', compact('barang'));

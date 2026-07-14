@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 
-    
+
 
     // Barang
     Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');
@@ -43,4 +43,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/kategori/{kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::put('/kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
     Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+
+    // Barang Trash
+    Route::get('/barang/trash', [BarangController::class, 'trash'])->name('barang.trash');
+    Route::patch('/barang/{id}/restore', [BarangController::class, 'restore'])->name('barang.restore');
+    Route::delete('/barang/{id}/force-delete', [BarangController::class, 'forceDelete'])->name('barang.forceDelete');
+
+    // Kategori Trash
+    Route::get('/kategori/trash', [KategoriController::class, 'trash'])->name('kategori.trash');
+    Route::patch('/kategori/{id}/restore', [KategoriController::class, 'restore'])->name('kategori.restore');
+    Route::delete('/kategori/{id}/force-delete', [KategoriController::class, 'forceDelete'])->name('kategori.forceDelete');
 });

@@ -13,10 +13,25 @@
                 </p>
             </div>
 
-            <a href="{{ route('barang.create') }}" class="btn btn-primary px-4">
-                <i class="bi bi-plus-lg me-1"></i>
-                Tambah Barang
-            </a>
+            <div class="d-flex gap-2">
+
+                <a href="{{ route('barang.trash') }}"
+                    class="btn btn-outline-secondary d-flex align-items-center justify-content-center px-4">
+
+                    <i class="bi bi-trash-fill"></i>
+                    Trash
+
+                </a>
+
+                <a href="{{ route('barang.create') }}"
+                    class="btn btn-primary d-flex align-items-center justify-content-center px-4">
+
+                    <i class="bi bi-plus-lg me-2"></i>
+                    Tambah Barang
+
+                </a>
+
+            </div>
 
         </div>
 
@@ -95,7 +110,7 @@
 
                                         <span class="badge text-bg-primary">
 
-                                            {{ $item->kategori->nama_kategori }}
+                                            {{ $item->kategori?->nama_kategori ?? 'Kategori sudah dihapus' }}
 
                                         </span>
 
@@ -134,8 +149,7 @@
                                         </a>
 
 
-                                        <form action="{{ route('barang.destroy', $item->id) }}" method="POST"
-                                            class="d-inline">
+                                        <form action="{{ route('barang.destroy', $item->id) }}" method="POST" class="d-inline">
 
                                             @csrf
                                             @method('DELETE')
