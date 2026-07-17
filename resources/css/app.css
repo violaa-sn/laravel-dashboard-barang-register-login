@@ -2,187 +2,316 @@
  @import "bootstrap-icons/font/bootstrap-icons.css";
  @import "./layout.css";
  @import "./kategori.css";
-@import 'tailwindcss';
+ @import 'tailwindcss';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+ @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+ @source '../../storage/framework/views/*.php';
+ @source '../**/*.blade.php';
+ @source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-}
+ @theme {
+     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+         'Segoe UI Symbol', 'Noto Color Emoji';
+ }
 
-/* ==========================================
+ /* ==========================================
    ROOT
 ========================================== */
 
-:root{
+ :root {
 
-    --primary:#2563eb;
-    --primary-dark:#1d4ed8;
+     --primary: #2563eb;
+     --primary-dark: #1d4ed8;
 
-    --success:#16a34a;
-    --danger:#dc2626;
-    --warning:#f59e0b;
-    --info:#0ea5e9;
+     --success: #16a34a;
+     --danger: #dc2626;
+     --warning: #f59e0b;
+     --info: #0ea5e9;
 
-    --bg:#f5f7fb;
-    --card:#ffffff;
+     --bg: #f5f7fb;
+     --card: #ffffff;
 
-    --text:#1f2937;
-    --muted:#6b7280;
+     --text: #1f2937;
+     --muted: #6b7280;
 
-    --border:#e5e7eb;
+     --border: #e5e7eb;
 
-    --radius:18px;
+     --radius: 18px;
 
-    --shadow:
-        0 8px 24px rgba(15,23,42,.06);
+     --shadow:
+         0 8px 24px rgba(15, 23, 42, .06);
 
-}
+ }
 
-/* ==========================================
+ /* ==========================================
    RESET
 ========================================== */
 
-*{
+ * {
 
-    margin:0;
+     margin: 0;
 
-    padding:0;
+     padding: 0;
 
-    box-sizing:border-box;
+     box-sizing: border-box;
 
-}
+ }
 
-html{
+ html {
 
-    scroll-behavior:smooth;
+     scroll-behavior: smooth;
 
-}
+ }
 
-body{
+ body {
 
-    background:var(--bg);
+     background: var(--bg);
 
-    color:var(--text);
+     color: var(--text);
 
-    overflow-x:hidden;
+     overflow-x: hidden;
 
-    font-family:var(--font-sans);
+     font-family: var(--font-sans);
 
-}
+ }
 
-/* ==========================================
+ /* ==========================================
    LAYOUT
 ========================================== */
 
-.app-layout{
+ .app-layout {
 
-    display:flex;
+     display: flex;
 
-    min-height:100vh;
+     min-height: 100vh;
 
-}
+ }
 
-/* ==========================================
+ /* ==========================================
    SIDEBAR
 ========================================== */
 
-.app-sidebar{
+ .app-sidebar {
 
-    width:270px;
+     width: 270px;
 
-    position:fixed;
+     position: fixed;
 
-    top:0;
+     top: 0;
 
-    left:0;
+     left: 0;
 
-    bottom:0;
+     bottom: 0;
 
-    background:#fff;
+     background: #fff;
 
-    border-right:1px solid var(--border);
+     border-right: 1px solid var(--border);
 
-    display:flex;
+     display: flex;
 
-    flex-direction:column;
+     flex-direction: column;
 
-    z-index:1040;
+     z-index: 1040;
 
+ }
+
+ /* Logo */
+
+ .sidebar-brand {
+
+     height: 80px;
+
+     display: flex;
+
+     align-items: center;
+
+     padding: 0 24px;
+
+     border-bottom: 1px solid var(--border);
+
+ }
+
+ .brand-link {
+
+     display: flex;
+
+     align-items: center;
+
+     text-decoration: none;
+
+     color: inherit;
+
+ }
+
+ .brand-logo {
+
+     width: 50px;
+
+     height: 50px;
+
+     border-radius: 14px;
+
+     background: var(--primary);
+
+     color: #fff;
+
+     display: flex;
+
+     align-items: center;
+
+     justify-content: center;
+
+     font-size: 1.4rem;
+
+ }
+
+ .brand-text {
+
+     margin-left: 14px;
+
+ }
+
+ .brand-text h5 {
+
+     margin: 0;
+
+     font-size: 1.05rem;
+
+     font-weight: 700;
+
+ }
+
+ .brand-text small {
+
+     color: var(--muted);
+
+ }
+
+ /* ==========================================
+   SIDEBAR MENU
+========================================== */
+
+ .sidebar-menu {
+     flex: 1;
+     padding: 24px 18px;
+     overflow-y: auto;
+ }
+
+ .menu-title {
+     font-size: .75rem;
+     font-weight: 600;
+     letter-spacing: 1px;
+     color: var(--muted);
+     margin-bottom: 16px;
+ }
+
+ .menu-list {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
+
+ .menu-list li {
+     list-style: none;
+ }
+
+ /* ==========================
+      MENU ITEM
+========================== */
+
+ .sidebar-item {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+
+     width: 100%;
+
+     padding: 14px 18px;
+     margin-bottom: 6px;
+
+     border-radius: 14px;
+
+     text-decoration: none;
+     color: var(--text);
+
+     transition: .25s ease;
+ }
+
+ .sidebar-item i {
+     font-size: 1.1rem;
+ }
+
+ .sidebar-item:hover {
+     background: #edf4ff;
+     color: var(--primary);
+ }
+
+ .sidebar-item.active,
+ .menu-item.active>.sidebar-item {
+     background: var(--primary);
+     color: #fff;
+ }
+
+ .sidebar-item.active i,
+ .menu-item.active>.sidebar-item i {
+     color: #fff;
+ }
+
+ /* ==========================
+        ARROW
+========================== */
+
+ .arrow {
+     margin-left: auto;
+     transition: transform .3s ease;
+ }
+
+ .menu-item.active .arrow {
+     transform: rotate(180deg);
+ }
+
+ /* ==========================
+        SUB MENU
+========================== */
+
+.submenu{
+    display: none;
+    list-style: none;
+
+    margin-top: 6px;
+    padding-left: 18px;
 }
 
-/* Logo */
+ .menu-item.active .submenu {
+     display: block;
+ }
 
-.sidebar-brand{
+ .submenu li {
+     margin: 4px 0;
+ }
 
-    height:80px;
+ .submenu a {
+     display: flex;
+     align-items: center;
 
-    display:flex;
+     width: 100%;
 
-    align-items:center;
+     padding: 10px 14px;
 
-    padding:0 24px;
+     border-radius: 10px;
 
-    border-bottom:1px solid var(--border);
+     text-decoration: none;
 
-}
+     color: var(--muted);
+ }
 
-.brand-link{
+ .submenu a:hover {
+     background: #edf4ff;
+     color: var(--primary);
+ }
 
-    display:flex;
-
-    align-items:center;
-
-    text-decoration:none;
-
-    color:inherit;
-
-}
-
-.brand-logo{
-
-    width:50px;
-
-    height:50px;
-
-    border-radius:14px;
-
-    background:var(--primary);
-
-    color:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:1.4rem;
-
-}
-
-.brand-text{
-
-    margin-left:14px;
-
-}
-
-.brand-text h5{
-
-    margin:0;
-
-    font-size:1.05rem;
-
-    font-weight:700;
-
-}
-
-.brand-text small{
-
-    color:var(--muted);
-
-}
+ .submenu a.active {
+     background: #edf4ff;
+     color: var(--primary);
+     font-weight: 600;
+ }

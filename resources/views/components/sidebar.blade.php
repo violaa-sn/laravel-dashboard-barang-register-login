@@ -25,51 +25,60 @@
 
     {{-- Menu --}}
     <div class="sidebar-menu">
+        <div class="menu-title">MAIN MENU</div>
 
-        <div class="menu-title">
+        <ul class="menu-list">
+            <li>
+                <a href="{{ route('dashboard') }}" class="sidebar-item">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
 
-            MAIN MENU
+            <li>
+                <a href="{{ route('barang.index') }}" class="sidebar-item">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Barang</span>
+                </a>
+            </li>
 
-        </div>
+            <li>
+                <a href="{{ route('kategori.index') }}" class="sidebar-item">
+                    <i class="bi bi-tags"></i>
+                    <span>Kategori</span>
+                </a>
+            </li>
 
-        <a href="{{ route('dashboard') }}"
-            class="sidebar-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            <li class="menu-item {{ request()->routeIs('profile') || request()->routeIs('users.*') ? 'active' : '' }}">
 
-            <i class="bi bi-grid-1x2-fill"></i>
+                <a href="#" class="sidebar-item">
+                    <i class="bi bi-person-circle"></i>
 
-            <span>Dashboard</span>
+                    <span>User</span>
 
-        </a>
+                    <i class="bi bi-chevron-down arrow"></i>
+                </a>
 
-        <a href="{{ route('barang.index') }}"
-            class="sidebar-item {{ request()->routeIs('barang.*') ? 'active' : '' }}">
+                <ul class="submenu">
 
-            <i class="bi bi-box-seam"></i>
+                    <li>
+                        <a href="{{ route('profile') }}" class="{{ request()->routeIs('profile') ? 'active' : '' }}">
+                            Account Detail
+                        </a>
+                    </li>
 
-            <span>Barang</span>
+                    <li>
+                        <a href="{{ route('users.index') }}"
+                            class="{{ request()->routeIs('users.*') ? 'active' : '' }}">
+                            User Lists
+                        </a>
+                    </li>
 
-        </a>
+                </ul>
 
-        <a href="{{ route('kategori.index') }}"
-            class="sidebar-item {{ request()->routeIs('kategori.*') ? 'active' : '' }}">
-
-            <i class="bi bi-tags"></i>
-
-            <span>Kategori</span>
-
-        </a>
-
-        <a href="{{ route('profile') }}"
-            class="sidebar-item {{ request()->routeIs('profile') ? 'active' : '' }}">
-
-            <i class="bi bi-person-circle"></i>
-
-            <span>Profile</span>
-
-        </a>
-
+            </li>
+        </ul>
     </div>
-
     {{-- Footer Sidebar --}}
     <div class="sidebar-footer">
 

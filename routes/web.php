@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
@@ -24,7 +25,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    // Account Detail
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
+
+    // User Lists
+    Route::get('/users', [UserController::class, 'index'])
+        ->name('users.index');
+
+    Route::get('/users/{user}', [UserController::class, 'show'])
+        ->name('users.show');
+
+
 
 
 
